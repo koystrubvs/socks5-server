@@ -1,0 +1,22 @@
+# SOCKS5-выход через awg0. Chromium работает без SOCKS5-авторизации;
+# доступ ограничен ALLOWED_IPS в существующем .env. Порт на хост не публикуется.
+services:
+  vpn-socks:
+    image: vpn-socks-secfix:ser891-20261022
+    container_name: vpn-socks
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PROXY_PORT: "1080"
+    networks:
+      coolify:
+        ipv4_address: 10.0.1.250
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+networks:
+  coolify:
+    external: true
