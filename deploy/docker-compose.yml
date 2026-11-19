@@ -2,7 +2,7 @@
 # доступ ограничен ALLOWED_IPS в существующем .env. Порт на хост не публикуется.
 services:
   vpn-socks:
-    image: vpn-socks-secfix:ser251-20261107
+    image: vpn-socks-secfix:ser1116-20261119
     container_name: vpn-socks
     restart: unless-stopped
     env_file: .env
